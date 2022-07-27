@@ -63,3 +63,7 @@ li {
   border: 1px solid black;
   margin-bottom: 30px; 
 }
+
+button {
+  margin-bottom: 10px;
+}

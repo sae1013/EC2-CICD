@@ -19,37 +19,71 @@ const getRandomRank = (arr) => {
   })
   return returnRank
 }
-const initialGroup = [
+const group = [
   {
     key:'빅뱅',
-    vote:1
+    vote:0
   },
   {
     key:'동방신기',
-    vote:3
+    vote:0
   },
   {
     key:'소녀시대',
-    vote:10
+    vote:0
   },
   {
     key:'샤이니',
-    vote:2
+    vote:0
   }
 ]
+const fetchItem = () => {
+  return new Promise((resolve,reject) => {
+    group.sort((obj1,obj2) => {
+      if(obj1.vote > obj2.vote) return -1
+      else return 1
+  })
+  console.log(group)
+    setTimeout(() => {
+      resolve([...group])
+    },200)
+  })
+
+}
+
+const increaseVote = (e) => {
+  const groupTarget = e.target.getAttribute('data-index');
+  // console.log(groupTarget)
+  group.forEach((item)=> {
+    if(item.key == groupTarget) {
+      item.vote +=1;
+      return
+    }
+  });
+}
+
+const addNewGroup = () => {
+  group.push({
+    key:'새그룹',
+    vote:10
+  })
+}
 
 export default function App() {
-  const [items,setItems] = useState(initialGroup)
-  
+  const [items,setItems] = useState([])
+  useEffect(() => {
+    console.log('리렌더',items)
+  })
   return (
     <div className="wrapper">
-      <Reorder.Group values = {items} onReorder={setItems}>
-        {items.map((item) => {
+      <Reorder.Group values = {items}>
+        {items.map((item,index) => {
             return (
-              <Reorder.Item key = {item.key} value = {item.vote}>
+              <Reorder.Item key = {item.key} value = {item.vote} dragListener = {false}>
                 <div>
+                  {index+1}등
                   {item.key}
-                  <span>{item.vote}</span>
+                  <span>{item.vote}표</span>
                 </div>
               </Reorder.Item>
             )
@@ -57,13 +91,15 @@ export default function App() {
       </Reorder.Group>
         
       <button onClick = {() => {
-        setInterval(() => {
-          setItems((currentRank) => {
-            return getRandomRank(currentRank)
-          })
-        },2000)
-        
-      }}>클릭</button>
+        fetchItem().then((result) => {
+          setItems(result)
+        })        
+      }}>받아오기</button>
+      <button data-index = "소녀시대" onClick={increaseVote}>소녀시대 증가</button>
+      <button data-index = "동방신기" onClick={increaseVote}>동방신기 증가</button>
+      <button data-index = "샤이니" onClick={increaseVote}>샤이니 증가</button>
+      <button data-index = "빅뱅" onClick={increaseVote}>빅뱅 증가</button>
+      <button onClick={addNewGroup}>새 그룹 추가</button>
     </div>
   )
   
