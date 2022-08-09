@@ -74,6 +74,7 @@ export default function App() {
   useEffect(() => {
   
   })
+  
   return (
     <div className="wrapper">
       <span>This is the test EC2 Jenkins </span>
