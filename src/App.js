@@ -72,13 +72,13 @@ const addNewGroup = () => {
 export default function App() {
   const [items,setItems] = useState([])
   useEffect(() => {
-    console.log('리렌더',items)
+  
   })
   return (
     <div className="wrapper">
       <span>This is the test EC2 Jenkins </span>
       
-      
+
       <Reorder.Group values = {items}>
         {items.map((item,index) => {
             return (
