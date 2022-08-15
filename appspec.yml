@@ -1,11 +1,11 @@
 version: 0.0
 os: linux
 files:
-  - source: /build
+  - source: /
     destination: /home/ec2-user/build
     overwirte: yes
 hooks:
   ApplicationStart:
     - location: deploy.sh
       timeout: 100
-      runas: root
+      runas: ec2-user
