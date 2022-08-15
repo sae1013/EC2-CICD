@@ -9,7 +9,4 @@ hooks:
     - location: deploy.sh
       timeout: 100
       runas: ec2-user
-  # ApplicationStop:
-  #   - location: scripts/stop_server.sh
-  #     timeout: 300
-  #     runas: root
+  
