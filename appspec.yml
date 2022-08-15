@@ -1,8 +1,8 @@
 version: 0.0
 os: linux
 files:
-  - source: /**
-    destination: /home/ec2-user/build/
+  - source: /
+    destination: /home/ec2-user/build
     overwirte: yes
 hooks:
   BeforeInstall:
