@@ -79,6 +79,7 @@ export default function App() {
       <span>This is the test EC2 Jenkins SUCESSFUL!!!!! </span>
       <span>수정하여 자동으로 배포합니다~! </span>
       <span>build/build 경로로 둘경우 500에러가 뜨던데 왜그런거죠? </span>
+      <span>아마도,,, nginx 자체 경로규칙 때문인가 </span>
       
 
 
