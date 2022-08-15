@@ -78,6 +78,7 @@ export default function App() {
     <div className="wrapper">
       <span>This is the test EC2 Jenkins SUCESSFUL!!!!! </span>
       <span>수정하여 자동으로 배포합니다~! </span>
+      <span>build/build 경로로 둘경우 500에러가 뜨던데 왜그런거죠? </span>
       
 
 
