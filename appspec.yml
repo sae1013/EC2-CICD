@@ -2,7 +2,7 @@ version: 0.0
 os: linux
 files:
   - source: /
-    destination: /home/ec2-user/build
+    destination: /home/EC2-CICD/buildTest
     overwirte: yes
 hooks:
   ApplicationStart:
