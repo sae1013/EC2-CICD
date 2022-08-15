@@ -77,6 +77,7 @@ export default function App() {
   return (
     <div className="wrapper">
       <span>This is the test EC2 Jenkins SUCESSFUL!!!!! </span>
+      <span>수정하여 자동으로 배포합니다~! </span>
       
 
 
