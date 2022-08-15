@@ -1,13 +1,13 @@
 version: 0.0
 os: linux
 files:
-  - source: /
+  - source: /**
     destination: /home/ec2-user/build/
     overwirte: yes
 hooks:
   BeforeInstall:
     - location: deploy-before.sh
-      timeout: 300
+      timeout: 100
       runas: root
   # AfterInstall:
   #   - location: scripts/change_permissions.sh
@@ -15,7 +15,7 @@ hooks:
   #     runas: root
   ApplicationStart:
     - location: deploy.sh
-      timeout: 300
+      timeout: 100
       runas: root
   # ApplicationStop:
   #   - location: scripts/stop_server.sh
